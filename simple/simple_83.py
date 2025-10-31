@@ -11,8 +11,16 @@
 -100 <= Node.val <= 100
 题目数据保证链表已经按升序 排列
 """
-def deleteDuplicates(head: Optional[ListNode]) -> Optional[ListNode]:
-    if head == None:
+from typing import List, Optional
+
+class ListNode:
+    def __init__(self, x: int) -> None:
+        self.val = x
+        self.next = None
+
+
+def delete_duplicates(head):
+    if not head:
         return head
     p = head
     while p.next:
@@ -21,3 +29,19 @@ def deleteDuplicates(head: Optional[ListNode]) -> Optional[ListNode]:
         else:
             p = p.next
     return head
+
+
+if __name__ == '__main__':
+    head = ListNode(1)
+    Node1 = ListNode(1)
+    Node2 = ListNode(2)
+    head.next = Node1
+    Node1.next = Node2
+
+    res = deleteDuplicates(head)
+    
+    while res != None:
+        print(res.val)
+        res = res.next
+
+#考虑极端情况，前中后

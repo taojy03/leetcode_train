@@ -8,21 +8,29 @@
 树中节点数目在范围 [0, 100] 内
 -100 <= Node.val <= 100
 """
-
+from typing import List, Optional
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
-class Solution:
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        result=[]
-        def inorder(Node):
-            if Node == None:
-                return
-            inorder(Node.left)
-            result.append(Node.val)
-            inorder(Node.right)
-        inorder(root)
-        return result
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
+    result=[]
+    def inorder(Node):
+        if not Node:
+            return
+        inorder(Node.left)
+        result.append(Node.val)
+        inorder(Node.right)
+    inorder(root)
+    return result
+
+#if Node == None 与 if not Node 等价
+
+if __name__ == '__main__':
+    root = TreeNode(1)
+    root.right = TreeNode(2)
+    root.right.left = TreeNode(3)
+    print(inorderTraversal(root))

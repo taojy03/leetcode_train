@@ -60,4 +60,12 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         nums1[j] = nums[j]
     return nums1
 
+if __name__ == '__main__':
+    nums1 = [1, 2, 3, 0, 0, 0]
+    nums2 = [2, 5, 6]
+    merge(nums1, 3, nums2, 3)
+    print(nums1)
+
+
+
 #进阶：你可以设计实现一个时间复杂度为 O(m + n) 的算法解决此问题吗？
