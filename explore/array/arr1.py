@@ -32,12 +32,17 @@ ans[i + n] == nums[i]
 
 from typing import List
 def getConcatenation(nums: List[int]) -> List[int]:
-    length = len(nums)
-    arr = [0] * (length*2)
-    for i in range(length):
-        arr[i] = nums[i]
-        arr[i + length] = nums[i]
-    return arr
+    # length = len(nums)
+    # arr = [0] * (length*2)
+    # for i in range(length):
+    #     arr[i] = nums[i]
+    #     arr[i + length] = nums[i]
+    # return arr
+    #解法1
+    return nums.extend(nums)
+    #解法2
+    return nums*2
+
 
 if __name__ == '__main__':
     nums = [1,2,1]

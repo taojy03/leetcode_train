@@ -26,6 +26,8 @@ from typing import List
 def shuffle(nums: List[int], n: int) -> List[int]:
     arr = [0] * n * 2
     j = 0
+    # for i in [1,2,3]:
+    #
     for i in range(n * 2):
         if i % 2 == 0:
             arr[i] = nums[j]
